@@ -75,6 +75,7 @@ function addOurTeach() {
    var matKhau = getID("MatKhau").value;
    var hoTen = getID("HoTen").value;
    var email = getID("Email").value;
+   var hinhAnh = getID("HinhAnh").value;
    var loaiNgonNgu = getID("loaiNgonNgu").value;
    var loaiNguoiDung = getID("loaiNguoiDung").value;
    var moTa = getID("MoTa").value;
@@ -86,6 +87,7 @@ function addOurTeach() {
       matKhau,
       hoTen,
       email,
+      hinhAnh,
       loaiNgonNgu,
       loaiNguoiDung,
       moTa
@@ -137,6 +139,7 @@ function updateOurTeach(id) {
    var matKhau = getID("MatKhau").value;
    var hoTen = getID("HoTen").value;
    var email = getID("Email").value;
+   var hinhAnh = getID("HinhAnh").value;
    var loaiNgonNgu = getID("loaiNgonNgu").value;
    var loaiNguoiDung = getID("loaiNguoiDung").value;
    var moTa = getID("MoTa").value;
@@ -147,6 +150,7 @@ function updateOurTeach(id) {
       matKhau,
       hoTen,
       email,
+      hinhAnh,
       loaiNgonNgu,
       loaiNguoiDung,
       moTa

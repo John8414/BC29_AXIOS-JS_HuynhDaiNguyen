@@ -4,6 +4,7 @@ function OurTeach(
    _matKhau,
    _hoTen,
    _email,
+   _hinhAnh,
    _ngonNgu,
    _loaiND,
    _moTa
@@ -13,6 +14,7 @@ function OurTeach(
    this.matKhau = _matKhau;
    this.hoTen = _hoTen;
    this.email = _email;
+   this.hinhAnh = _hinhAnh;
    this.ngonNgu = _ngonNgu;
    this.loaiND = _loaiND;
    this.moTa = _moTa;

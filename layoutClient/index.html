@@ -19,13 +19,46 @@
   <!-- slim select -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet">
   </link>
+  <style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      /* Safari */
+      animation: spin 2s linear infinite;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
 
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
   <link rel="stylesheet" href="./css/main.css" />
   <title>Our Team</title>
 </head>
 
 <body>
-
   <div class="wrapper">
     <!-- side nav -->
     <section class="sidenav">
@@ -177,119 +210,8 @@
       <section class="team">
         <div class="grid">
           <div class="team__container">
-            <div class="team__list">
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_1.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">ITALIAN</p>
-                    <p class="team__item-name">July Roberts</p>
-                    <p class="team__item-description">
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_2.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">FRENCH</p>
-                    <p class="team__item-name">Jon Stone</p>
-                    <p class="team__item-description">
-                      Nanotechnology immersion along the information.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_3.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">JAPANESE</p>
-                    <p class="team__item-name">Emma Stone</p>
-                    <p class="team__item-description">
-                      Bring to the table win-win survival strategies to ensure.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_4.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">CHINESE</p>
-                    <p class="team__item-name">Mark Lee</p>
-                    <p class="team__item-description">
-                      Proactive domination. At the end of the day, going forward.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_5.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">RUSSIAN</p>
-                    <p class="team__item-name">John Doe</p>
-                    <p class="team__item-description">
-                      A new normal that has evolved from generation X.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_6.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">SWEDEN</p>
-                    <p class="team__item-name">Jane Smith</p>
-                    <p class="team__item-description">
-                      Heading towards a streamlined cloud solution.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_7.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">SPANISH</p>
-                    <p class="team__item-name">Hanna Alverez</p>
-                    <p class="team__item-description">
-                      Content in real-time will have multiple touchpoints.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="team__item">
-                <div class="team__item-content">
-                  <div class="team__item-img">
-                    <img src="./assets/img/teacher_8.jpg" />
-                  </div>
-                  <div class="team__item-info">
-                    <p class="team__item-country">ITALIAN</p>
-                    <p class="team__item-name">July July</p>
-                    <p class="team__item-description">
-                      Capitalize on low hanging fruit to identify a ballpark.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div id="loader" class="loader" style="display: none;"></div>
+            <div id="listOurTeams" class="team__list">
             </div>
           </div>
         </div>
@@ -443,9 +365,15 @@
   <!-- slim select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
   <script src="./controllers/slimSelect.js"></script>
-
+  <!-- cdn api -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- control js -->
   <script src="./controllers/index.js"></script>
+  <!-- main js  -->
+  <script src="./src/services/index.js"></script>
+  <script src="./src/main.js"></script>
 </body>
 
 </html>
