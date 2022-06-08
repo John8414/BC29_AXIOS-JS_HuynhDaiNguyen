@@ -29,7 +29,7 @@ function renderListOurTeachs(data) {
             <td>${ourTeach.hoTen}</td>
             <td>${ourTeach.email}</td>
             <td>${ourTeach.ngonNgu}</td>
-            <td>${ourTeach.loaiND}</td>
+            <td>${ourTeach.userType}</td>
             <td>${ourTeach.moTa}</td>
             <td>
                   <button class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="editOurTeach(${ourTeach.id})">Sửa</button>
@@ -37,7 +37,7 @@ function renderListOurTeachs(data) {
             </td>
       </tr>
       `;
-   })
+   });
 
    getID("tblDanhSachNguoiDung").innerHTML = contentHTML;
 }
@@ -62,9 +62,9 @@ getID("btnThemNguoiDung").onclick = function () {
    // Sửa lại title modal
    document.getElementsByClassName("modal-title")[0].innerHTML = "Thêm Người Dùng";
    // Thêm nút "Add" vào footer modal
-   var footer = `<button class = "btn btn-success" onclick="addOurTeach()">Add</button>`
+   var footer = `<button class = "btn btn-success" onclick="addOurTeach()">Add</button>`;
    document.getElementsByClassName("modal-footer")[0].innerHTML = footer;
-}
+};
 
 /**
  * Add ND
@@ -90,7 +90,7 @@ function addOurTeach() {
       hinhAnh,
       loaiNgonNgu,
       loaiNguoiDung,
-      moTa
+      moTa,
    );
    services
       .addOurTeachApi(ourTeach)
@@ -109,7 +109,7 @@ function editOurTeach(id) {
    // Sửa lại title modal
    document.getElementsByClassName("modal-title")[0].innerHTML = "Edit Người Dùng";
    // Thêm nút "Update" vào footer modal
-   var footer = `<button class = "btn btn-success" onclick="updateOurTeach(${id})">Update</button>`
+   var footer = `<button class = "btn btn-success" onclick="updateOurTeach(${id})">Update</button>`;
    document.getElementsByClassName("modal-footer")[0].innerHTML = footer;
    // getOurTeachById
    services
@@ -120,8 +120,9 @@ function editOurTeach(id) {
          getID("MatKhau").value = result.data.matKhau;
          getID("HoTen").value = result.data.hoTen;
          getID("Email").value = result.data.email;
+         getID("HinhAnh").value = result.data.hinhAnh;
          getID("loaiNgonNgu").value = result.data.ngonNgu;
-         getID("loaiNguoiDung").value = result.data.loaiND;
+         getID("loaiNguoiDung").value = result.data.userType;
          getID("MoTa").value = result.data.moTa;
 
       })
@@ -165,5 +166,5 @@ function updateOurTeach(id) {
       })
       .catch(function (error) {
          console.log(error);
-      })
+      });
 }

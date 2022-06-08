@@ -1,5 +1,8 @@
 var service = new Services();
 
+const GV = 'GV';
+const HV = 'HV';
+
 function getID(id) {
    return document.getElementById(id);
 }
@@ -18,29 +21,35 @@ function getListOurTeams() {
          console.log(error);
       });
 }
-
+// renderListOurTeachs();
 getListOurTeams();
+// editOurTeach();
 
 function renderListOurTeams(data) {
    var contentHTML = "";
    data.forEach(function (ourTeach) {
-      contentHTML += `
-      <div class="team__item">
-          <div class="team__item-content">
-            <div class="team__item-img">
-              <img src="./assets/img/${ourTeach.hinhAnh}.jpg" alt="picture of teacher" >
-          </div>
-          <div class="team__item-info">
-          <p class="team__item-country">${ourTeach.ngonNgu}</p>
-          <p class="team__item-name">${ourTeach.hoTen}</p>
-          <p class="team__item-description">
-           ${ourTeach.moTa}
-          </p>
-        </div>
-        </div>
-      </div> 
-      `;
+      if (ourTeach.userType === GV) {
+
+         contentHTML += `
+            <div class="team__item">
+                <div class="team__item-content">
+                  <div class="team__item-img">
+                    <img src="./assets/img/${ourTeach.hinhAnh}.jpg" alt="picture of teacher" >
+                </div>
+                <div class="team__item-info">
+                <p class="team__item-country">${ourTeach.ngonNgu}</p>
+                <p class="team__item-name">${ourTeach.hoTen}</p>
+                <p class="team__item-description">
+                 ${ourTeach.moTa}
+                </p>
+              </div>
+              </div>
+            </div> 
+            `;
+      }
    });
 
+
+
    getID("listOurTeams").innerHTML = contentHTML;
-}
+}  

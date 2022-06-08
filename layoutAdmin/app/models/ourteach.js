@@ -6,8 +6,8 @@ function OurTeach(
    _email,
    _hinhAnh,
    _ngonNgu,
-   _loaiND,
-   _moTa
+   _userType,
+   _moTa,
 ) {
    this.id = _id;
    this.taiKhoan = _taiKhoan;
@@ -16,6 +16,7 @@ function OurTeach(
    this.email = _email;
    this.hinhAnh = _hinhAnh;
    this.ngonNgu = _ngonNgu;
-   this.loaiND = _loaiND;
+   this.userType = _userType;
    this.moTa = _moTa;
+
 }
