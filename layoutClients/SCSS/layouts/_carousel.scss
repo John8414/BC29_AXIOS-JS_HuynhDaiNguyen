@@ -1,0 +1,9 @@
+.carousel {
+    background: url(../../assets/img/yellow_top_wave_01.png) top center/contain no-repeat;
+    @include img(100%,100vh);
+    @include position(absolute,-1,0,initial,initial,0);
+
+    @include mediaQuery($lg) {
+        display: none;
+    }
+}
