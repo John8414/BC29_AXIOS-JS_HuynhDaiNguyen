@@ -29,7 +29,6 @@ function renderListOurTeams(data) {
    var contentHTML = "";
    data.forEach(function (ourTeach) {
       if (ourTeach.userType === GV) {
-
          contentHTML += `
             <div class="team__item">
                 <div class="team__item-content">
