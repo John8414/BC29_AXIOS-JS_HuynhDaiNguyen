@@ -1,6 +1,6 @@
 function Validation() {
    this.kiemTraRong = function (value, tbId, mess) {
-      if (value === "") {
+      if (value.trim() === "") {
          // error
          getID(tbId).innerHTML = mess;
          getID(tbId).style.display = "block";
